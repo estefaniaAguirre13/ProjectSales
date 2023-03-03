@@ -5,7 +5,7 @@
 namespace Sales.API.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialDb3 : Migration
+    public partial class Categories : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
