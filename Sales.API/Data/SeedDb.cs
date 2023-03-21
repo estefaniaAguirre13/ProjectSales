@@ -55,6 +55,7 @@ namespace Sales.API.Data
             return user;
         }
 
+
         private async Task CheckRolesAsync()
         {
             await _userHelper.CheckRoleAsync(UserType.Admin.ToString());
