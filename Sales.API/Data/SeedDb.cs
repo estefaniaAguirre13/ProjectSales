@@ -26,7 +26,7 @@ namespace Sales.API.Data
             await CheckCountriesAsync();
             await CheckCategoriesAsync();
             await CheckRolesAsync();
-            await CheckUserAsync("1010", "Estefania", "Aguirre", "estefa@yopmail.com", "322 519 6324", "Calle Luna Calle Sol", UserType.Admin);
+            await CheckUserAsync("1010", "Estefania", "Aguirre", "tefa@yopmail.com", "322 519 6324", "Calle Luna Calle Sol", UserType.Admin);
 
         }
 
