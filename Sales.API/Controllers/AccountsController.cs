@@ -44,6 +44,7 @@ namespace Sales.API.Controllers
             if (result.Succeeded)
             {
                 await _userHelper.AddUserToRoleAsync(user, user.UserType.ToString());
+
                 var myToken = await _userHelper.GenerateEmailConfirmationTokenAsync(user);
                 var tokenLink = Url.Action("ConfirmEmail", "accounts", new
                 {
@@ -66,26 +67,27 @@ namespace Sales.API.Controllers
             }
 
             return BadRequest(result.Errors.FirstOrDefault());
+
         }
 
         [HttpGet("ConfirmEmail")]
-public async Task<ActionResult> ConfirmEmailAsync(string userId, string token)
-{
-    token = token.Replace(" ", "+");
-    var user = await _userHelper.GetUserAsync(new Guid(userId));
-    if (user == null) 
-    {
-        return NotFound();  
-    }
+        public async Task<ActionResult> ConfirmEmailAsync(string userId, string token)
+        {
+            token = token.Replace(" ", "+");
+            var user = await _userHelper.GetUserAsync(new Guid(userId));
+            if (user == null)
+            {
+                return NotFound();
+            }
 
-    var result = await _userHelper.ConfirmEmailAsync(user, token);
-    if (!result.Succeeded) 
-    {
-        return BadRequest(result.Errors.FirstOrDefault());
-    }
+            var result = await _userHelper.ConfirmEmailAsync(user, token);
+            if (!result.Succeeded)
+            {
+                return BadRequest(result.Errors.FirstOrDefault());
+            }
 
-    return NoContent();
-}
+            return NoContent();
+        }
 
 
 
@@ -98,6 +100,7 @@ public async Task<ActionResult> ConfirmEmailAsync(string userId, string token)
                 var user = await _userHelper.GetUserAsync(model.Email);
                 return Ok(BuildToken(user));
             }
+
             if (result.IsLockedOut)
             {
                 return BadRequest("Ha superado el máximo número de intentos, su cuenta está bloqueada, intente de nuevo en 5 minutos.");

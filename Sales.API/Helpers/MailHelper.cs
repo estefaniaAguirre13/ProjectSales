@@ -42,7 +42,6 @@ namespace Sales.API.Helpers
                 }
 
                 return new Response { IsSuccess = true };
-
             }
             catch (Exception ex)
             {
