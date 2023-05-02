@@ -2,7 +2,6 @@
 
 <NavigationLock OnBeforeInternalNavigation="OnBeforeInternalNavigation" />
 
-<EditForm EditContext="editContext" OnValidSubmit="OnValidSubmit">
     <DataAnnotationsValidator/>
     <div class="mb-3">
         <label>País:</label>
@@ -13,7 +12,7 @@
     </div>
     <button class="btn btn-primary" type="submit">Guardar Cambios</button>
     <button class="btn btn-success" @onclick="ReturnAction">Regresar</button>
-</EditForm>
+
 
 @code {
     private EditContext editContext = null!;
