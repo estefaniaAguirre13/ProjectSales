@@ -1,0 +1,1 @@
+C:\projects\MauiTest2023\MauiTest2023\MauiTest2023.csproj;x64
